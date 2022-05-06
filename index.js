@@ -14,6 +14,10 @@ app.get('/', (_, res)=>{
     console.log('Page requested');
 });
 
+app.get('/contact', (_, res)=>{
+    res.sendFile('Error Page Not Found');
+});
+
 
 console.log("Listening port 5000");
 app.listen(5000);
