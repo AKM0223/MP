@@ -1,6 +1,8 @@
 const express= require('express');
 const path = require('path');
 
+// const connect = mongoose.connect(//)
+
 const publicPath = path.join(__dirname,'public');
 const app = express();
 
@@ -15,7 +17,7 @@ app.get('/', (_, res)=>{
 });
 
 app.get('/contact', (_, res)=>{
-    res.sendFile('Error Page Not Found');
+    res.send('Error Page Not Found');
 });
 
 
