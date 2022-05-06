@@ -1,15 +1,19 @@
 const express= require('express');
-require("./db/config");
-const User = require('./db/User');
-const app= express();
-app.use(express.json());
+const path = require('path');
 
-app.post("/register",async (req,resp)=>{
-    // console.log(req.body);
-    let user = new User(req.body);
-    let result = await user.save();
+const publicPath = path.join(__dirname,'public');
+const app = express();
 
-    resp.send(result);
+// console.log(publicPath);
+
+app.use(express.static(publicPath));
+// app.use(express.static());
+
+app.get('/', (_, res)=>{
+    res.sendFile(`${__dirname}/index.html`);
+    console.log('Page requested');
 });
+
+
 console.log("Listening port 5000");
 app.listen(5000);
